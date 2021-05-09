@@ -1,0 +1,7 @@
+asgi-redis==1.4.3
+channels==1.1.5
+Django==2.2.19
+django-cors-headers==3.7.0
+djangorestframework==3.12.2
+mysqlclient==2.0.3
+websocket-client==0.59.0
