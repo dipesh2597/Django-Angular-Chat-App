@@ -1,0 +1,63 @@
+
+<div id="top-right">
+    <p>Welcome {{selectedUser.user__first_name}} {{selectedUser.user__last_name}}</p>
+    <img src="../../assets/logout.jfif" class="logout" alt="logout" (click)="logout()" *ngIf="displayLogOut" title="Logout">   
+</div>
+<div class="chatbox">
+    <div class="user-list">
+        <h1>Online Users</h1>
+        <div id="users">
+            <div *ngFor="let user of users" class="user-name">
+                <p (click)="switchChat(user.user_id)" [ngClass]="setClasses(user.user_id)">{{user.user__first_name}} {{user.user__last_name}}</p>
+            </div>
+        </div>  
+    </div>
+
+    <div class="main">
+        <div class="chat-box">
+          <div class="message-area">
+            <header>
+              <p>{{selectedUser.user__first_name}} {{selectedUser.user__last_name}}</p>
+              <img src="https://randomuser.me/api/portraits/lego/8.jpg" alt="" />
+            </header>
+            <div
+              class="message"
+              *ngFor="let message of messages"
+              [ngClass]="getClasses(message.msg_type)"
+            >
+              <p>{{ message.message }}</p>
+              <p>&nbsp;</p>
+            </div>
+          </div>
+          <div class="input">
+            <form [formGroup]="msgForm" (ngSubmit)="sendMessage()" name="messageForm">
+              <input
+                placeholder="Type your message"
+                type="text" formControlName="message" id="message"/>
+                <button type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- <div class="chat-window">
+        <h1></h1>
+        <ul id="message-list">
+            <li *ngFor = "let message of messages">
+                {{message.message}}
+                {{message.msg_type}}
+            </li>
+        </ul>
+        <div class="input-area">
+            <form [formGroup]="msgForm" (ngSubmit)="sendMessage()" name="messageForm">
+              <input
+                placeholder="Type your message"
+                type="text" formControlName="message" id="message"/>
+              <button type="submit">
+                send
+              </button>
+            </form>
+        </div>
+    </div> -->
+</div>
