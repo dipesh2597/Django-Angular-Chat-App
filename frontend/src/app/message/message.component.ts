@@ -29,6 +29,7 @@ export class MessageComponent implements OnInit {
   session_uuid:any;
   public selectedUser:any;
   public selectedUserId:any;
+  public userName:any;
   displayLogOut: boolean = false;
   constructor(private cService: ChatService,private authService: AuthService,private router: Router,private renderer:Renderer2) { }
   
@@ -37,6 +38,7 @@ export class MessageComponent implements OnInit {
         this.router.navigate(['message/'])
         this.displayLogOut=true;
       }
+      this.userName=localStorage.getItem('name');
       this.showOnlineUsers();
       this.msgForm = new FormGroup({
           message: new FormControl('')
