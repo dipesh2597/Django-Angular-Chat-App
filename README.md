@@ -4,7 +4,7 @@ First start with backend application:
 1. Create python virtual environment and install requirment.txt file.
 2. Makemigration migrate using below commnds:
     python manage.py makemigrations
-    python manage.py migraet
+    python manage.py migrate
 3. Runserver using python manage.py runserver
 4. Register few users manually from backend or admin panel after creating sueruser because we didn;t implement user registration process yet
 
